@@ -5,4 +5,30 @@
 //  Created by Ankui on 7/10/22.
 //
 
-import Foundation
+import SwiftUI
+
+class EmojiMemoryGame {
+    static let emojis = [
+        "🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑",
+        "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦯", "🦽",
+        "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚨", "🚔",
+        "🚍", "🚘", "🚖", "🚡", "🚠", "🚟", "🚃", "🚋",
+        "🚞", "🚝", "🚄", "🚅", "🚈", "🚂", "🚆", "🚇",
+        "🚊", "🚉", "✈️", "🛫", "🛬", "🛩", "💺", "🛰",
+        "🚀", "🛸", "🚁", "🛶", "⛵️", "🚤", "🛥", "🛳",
+        "⛴", "🚢", "⚓️", "🪝", "⛽️", "🚧", "🚦", "🚥",
+    ]
+
+    static func createMemoryGame() -> MemoryGame<String> {
+        MemoryGame<String>(numberOfPairsOfCards: 4) { idx in
+           emojis[idx]
+       }
+    }
+    
+    private var model = createMemoryGame()
+    
+    var cards: [MemoryGame<String>.Card] {
+        model.cards
+    }
+    
+}
