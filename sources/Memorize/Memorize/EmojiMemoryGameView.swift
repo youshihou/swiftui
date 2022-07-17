@@ -28,16 +28,16 @@ struct CardView: View {
 
 
 struct EmojiMemoryGameView: View {    
-    @ObservedObject var viewModel: EmojiMemoryGame
+    @ObservedObject var game: EmojiMemoryGame
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
-                ForEach(viewModel.cards) { card in
+                ForEach(game.cards) { card in
                     CardView(card: card)
                         .aspectRatio(2/3, contentMode: .fit)
                         .onTapGesture {
-                            viewModel.choose(card)
+                            game.choose(card)
                         }
                 }
             }
@@ -47,10 +47,10 @@ struct EmojiMemoryGameView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct EmojiMemoryGame_Previews: PreviewProvider {
     static var previews: some View {
         let game = EmojiMemoryGame()
-        EmojiMemoryGameView(viewModel: game).preferredColorScheme(.light)
-        EmojiMemoryGameView(viewModel: game).preferredColorScheme(.dark)
+        EmojiMemoryGameView(game: game).preferredColorScheme(.light)
+        EmojiMemoryGameView(game: game).preferredColorScheme(.dark)
     }
 }
