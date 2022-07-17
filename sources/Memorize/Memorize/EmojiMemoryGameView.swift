@@ -41,8 +41,8 @@ struct EmojiMemoryGameView: View {
                         }
                 }
             }
-            .foregroundColor(.red)
         }
+        .foregroundColor(.red)
         .padding(.horizontal)
     }
 }
