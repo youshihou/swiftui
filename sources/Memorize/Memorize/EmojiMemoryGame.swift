@@ -22,7 +22,7 @@ class EmojiMemoryGame: ObservableObject {
     ]
 
     private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCards: 4) { idx in
+        MemoryGame<String>(numberOfPairsOfCards: 10) { idx in
            emojis[idx]
        }
     }
